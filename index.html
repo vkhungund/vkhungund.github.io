@@ -1,1 +1,25 @@
-Hello from Github Space - Second Commit check !
+---
+layout: default
+title: Home
+---
+
+<h2>Welcome to {{ site.title | default: "GitHub Space" }}</h2>
+
+<p>Hello from GitHub Space! This page is built with Jekyll using the <strong>Merlot</strong> theme via GitHub Actions.</p>
+
+{% if site.posts.size > 0 %}
+  <h3>Recent Posts</h3>
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span>({{ post.date | date: "%B %d, %Y" }})</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p><em>No blog posts yet. Create a <code>_posts/</code> folder and add a Markdown file to list posts here automatically.</em></p>
+{% endif %}
+
+<hr>
+<p><small>Last compiled on: {{ site.time | date: "%B %d, %Y at %H:%M UTC" }}</small></p>
